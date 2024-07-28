@@ -9,7 +9,7 @@ const Card = ({ data }) => {
       <div className='card_info'>
         <img src={data.image} alt='profile' />
         <div>
-            x32<strong>{data.name}</strong>
+          x32<strong>{data.name}</strong>
         </div>
         <div className='card_details'>
           <div className='card_value'>

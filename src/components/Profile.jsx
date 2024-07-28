@@ -44,7 +44,7 @@ const Profile = () => {
   }
 
   return (
-    <div className="profile">
+    <div className='profile'>
       <img src={character.image} alt={character.name} className='profile_image' />
       <div className='profile_info'>
         <h2>{character.name}</h2>
@@ -63,11 +63,10 @@ const Profile = () => {
             <strong>Name:</strong> {character.origin.name}
           </p>
           <p>
-            <strong>Dimension:</strong> {origin?.dimension || "Unknown"}
+            <strong>Dimension:</strong> {origin?.dimension || 'Unknown'}
           </p>
           <p>
-            <strong>Residents:</strong>{" "}
-            {origin?.residents ? origin?.residents.length : "Unknown"}
+            <strong>Residents:</strong>{" "}{origin?.residents ? origin?.residents.length : 'Unknown'}
           </p>
         </div>
         <div className='profile_location'>
@@ -79,8 +78,7 @@ const Profile = () => {
             <strong>Dimension:</strong> {location?.dimension || "Unknown"}
           </p>
           <p>
-            <strong>Residents:</strong>{" "}
-            {location?.residents ? location?.residents.length : "Unknown"}
+            <strong>Residents:</strong>{" "}{location?.residents ? location?.residents.length : "Unknown"}
           </p>
         </div>
         <div className='profile_episodes'>
