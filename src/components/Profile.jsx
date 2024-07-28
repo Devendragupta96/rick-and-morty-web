@@ -9,7 +9,6 @@ const Profile = () => {
   const [location, setLocation] = useState(null)
   const [episodeNames, setEpisodeNames] = useState([])
 
-
   useEffect(() => {
     fetchCharacter()
   }, [Id])
