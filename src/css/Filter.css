@@ -1,6 +1,7 @@
 .filter-container {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
     padding: 5px;
     align-items: center;
     border-radius: 5px;
@@ -10,9 +11,7 @@
   
   .filter-group {
     display: flex;
-    margin: 0px 5px ;
     flex-direction: column;
-    margin-bottom: 10px;
   }
   
   .filter-group label {
@@ -27,17 +26,15 @@
   }
   
   .filter-buttons {
-    margin-left: 20px;
+    grid-column: span 2;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
   
   .filter-buttons button {
     background-color: #f0c14b;
     border: none;
     padding: 10px 20px;
-    margin-left: 10px;
     border-radius: 5px;
     font-size: 12px;
     cursor: pointer;
@@ -46,10 +43,30 @@
   
   .filter-buttons button:last-child {
     background-color: #6c757d;
-    margin-right: 0;
   }
   
   .filter-buttons button:hover {
     opacity: 0.9;
+  }
+  
+  @media (max-width: 480px) {
+    .filter-container {
+      grid-template-columns: 1fr;
+      gap: 15px;
+      padding: 10px;
+    }
+  
+    .filter-buttons {
+      grid-column: span 1;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .filter-buttons button {
+      margin: 5px 0;
+      font-size: 14px;
+      padding: 10px;
+      width: 100%;
+    }
   }
   
