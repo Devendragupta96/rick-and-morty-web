@@ -8,8 +8,8 @@ const Card = ({ data }) => {
     <div className='card'>
       <div className='card_info'>
         <img src={data.image} alt='profile' />
-        <div>x32
-          <strong>{data.name}</strong>
+        <div>
+            x32<strong>{data.name}</strong>
         </div>
         <div className='card_details'>
           <div className='card_value'>
@@ -45,6 +45,7 @@ Card.propTypes = {
     name: PropTypes.string.isRequired,
     gender: PropTypes.string.isRequired,
     species: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     status: PropTypes.string.isRequired,
     location: PropTypes.shape({
       name: PropTypes.string.isRequired
