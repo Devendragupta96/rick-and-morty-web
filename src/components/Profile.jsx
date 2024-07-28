@@ -7,6 +7,8 @@ const Profile = () => {
   const [character, setCharacter] = useState(null)
   const [origin, setOrigin] = useState(null)
   const [location, setLocation] = useState(null)
+  const [episodeNames, setEpisodeNames] = useState([])
+
 
   useEffect(() => {
     fetchCharacter()
@@ -16,6 +18,7 @@ const Profile = () => {
     if (character) {
       fetchLocation(character.location.name)
       fetchOrigin(character.origin.name)
+      fetchEpisodes(character.episode)
     }
   }, [character])
 
@@ -37,6 +40,13 @@ const Profile = () => {
     const data = await response.json()
     console.log(data.results[0])
     setOrigin(data.results[0])
+  }
+
+  const fetchEpisodes = async (episodeUrls) => {
+    const episodePromises = episodeUrls.map((url) => fetch(url).then((res) => res.json()))
+    const episodes = await Promise.all(episodePromises)
+    const episodeNames = episodes.map((episode) => episode.name)
+    setEpisodeNames(episodeNames)
   }
 
   if (!character) {
@@ -84,8 +94,8 @@ const Profile = () => {
         <div className='profile_episodes'>
           <h3>Episodes</h3>
           <ul>
-            {character.episode.map((ep, index) => (
-              <li key={index}>{ep}</li>
+            {episodeNames.map((name, index) => (
+              <li key={index}>{name}</li>
             ))}
           </ul>
         </div>

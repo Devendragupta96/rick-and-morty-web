@@ -30,6 +30,10 @@
   }
   
   .profile_episodes {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
     margin-top: 20px;
   }
   
