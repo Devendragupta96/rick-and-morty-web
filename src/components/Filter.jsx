@@ -3,7 +3,9 @@ import { UserContext } from '../App'
 import '../css/Filter.css'
 
 const Filter = () => {
+  // Using useContext to access originalUserData and setUserData from UserContext
   const { originalUserData, setUserData } = useContext(UserContext)
+  // Initial state for filters
   const [filters, setFilters] = useState({
     status: '',
     location: '',
@@ -13,6 +15,7 @@ const Filter = () => {
     type: ''
   })
 
+  // Function to handle filter input changes
   const handleFilterChange = (e) => {
     const { name, value } = e.target
     setFilters((prevFilters) => ({
@@ -48,6 +51,7 @@ const Filter = () => {
     return data.filter((user) => user.type?.toLowerCase().includes(type.toLowerCase()))
   }
 
+  // Function to apply all filters
   const applyFilters = () => {
     let filteredData = originalUserData
 
@@ -78,6 +82,7 @@ const Filter = () => {
     setUserData(filteredData)
   }
 
+  // Function to reset all filters
   const resetFilters = () => {
     setFilters({
       status: '',

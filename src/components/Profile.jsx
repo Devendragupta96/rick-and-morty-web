@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import '../css/Profile.css'
 
 const Profile = () => {
-  const { Id } = useParams()
+  const { Id } = useParams() // Extracting Id from URL parameters
   const [character, setCharacter] = useState(null)
   const [origin, setOrigin] = useState(null)
   const [location, setLocation] = useState(null)
@@ -30,17 +30,16 @@ const Profile = () => {
   const fetchLocation = async () => {
     const response = await fetch(`https://rickandmortyapi.com/api/location/?name=${character.location.name}`)
     const data = await response.json()
-    console.log(data.results[0])
     setLocation(data.results[0])
   }
 
   const fetchOrigin = async () => {
     const response = await fetch(`https://rickandmortyapi.com/api/location/?name=${character.origin.name}`)
     const data = await response.json()
-    console.log(data.results[0])
     setOrigin(data.results[0])
   }
 
+  // Fetch episode data from API
   const fetchEpisodes = async (episodeUrls) => {
     const episodePromises = episodeUrls.map((url) => fetch(url).then((res) => res.json()))
     const episodes = await Promise.all(episodePromises)
@@ -48,6 +47,7 @@ const Profile = () => {
     setEpisodeNames(episodeNames)
   }
 
+  // Display loading message while data is being fetched
   if (!character) {
     return <p>Loading...</p>
   }

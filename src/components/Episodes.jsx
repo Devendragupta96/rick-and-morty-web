@@ -15,6 +15,7 @@ const Episodes = () => {
 
   const fetchData = async (page) => {
     if (cache[page]) {
+      // If data is cached, use it
       setCardsData(cache[page].results)
       setPageCount(cache[page].pages)
     } else {
@@ -29,6 +30,7 @@ const Episodes = () => {
     }
   }
 
+  // Handle page click for pagination
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected)
   }

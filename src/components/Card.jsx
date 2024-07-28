@@ -39,6 +39,7 @@ const Card = ({ data }) => {
   )
 }
 
+// PropTypes for type-checking
 Card.propTypes = {
   data: PropTypes.shape({
     image: PropTypes.string.isRequired,

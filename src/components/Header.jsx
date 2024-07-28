@@ -10,9 +10,10 @@ function Header() {
     setSearchQuery(e.target.value)
   }
 
+  // Function to perform search based on the search query
   const searchUser = () => {
     if (searchQuery === '') {
-      setUserData(originalUserData)
+      setUserData(originalUserData) // Reset to original data if search query is empty
       return
     }
     const filteredUser = originalUserData.filter((user) => user.name.toLowerCase().includes(searchQuery.toLowerCase()))

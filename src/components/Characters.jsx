@@ -17,20 +17,22 @@ const Characters = () => {
 
   const fetchData = async (page) => {
     if (cache[page]) {
+      // If data is cached, use it
       setUserData(cache[page].results)
       setPageCount(cache[page].pages)
     } else {
       const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
       const data = await response.json()
-      setPageCount(data.info.pages)
-      setUserData(data.results)
+      setPageCount(data.info.pages) // Set total number of pages
+      setUserData(data.results) // Set user data
       cache[page] = {
-        results: data.results,
-        pages: data.info.pages
+        results: data.results, // Cache the results
+        pages: data.info.pages // Cache the total number of pages
       }
     }
   }
 
+  // Handle page click for pagination
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected)
   }
