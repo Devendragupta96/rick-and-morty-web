@@ -66,7 +66,7 @@ const Profile = () => {
             <strong>Dimension:</strong> {origin?.dimension || 'Unknown'}
           </p>
           <p>
-            <strong>Residents:</strong>{' '}{origin?.residents ? origin?.residents.length : 'Unknown'}
+            <strong>Residents:</strong> {origin?.residents ? origin?.residents.length : 'Unknown'}
           </p>
         </div>
         <div className='profile_location'>
@@ -75,10 +75,10 @@ const Profile = () => {
             <strong>Name:</strong> {character.location.name}
           </p>
           <p>
-            <strong>Dimension:</strong> {location?.dimension || "Unknown"}
+            <strong>Dimension:</strong> {location?.dimension || 'Unknown'}
           </p>
           <p>
-            <strong>Residents:</strong>{' '}{location?.residents ? location?.residents.length : 'Unknown'}
+            <strong>Residents:</strong> {location?.residents ? location?.residents.length : 'Unknown'}
           </p>
         </div>
         <div className='profile_episodes'>
